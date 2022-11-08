@@ -1,0 +1,108 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fswiss\fcharset0 Helvetica;\f2\fswiss\fcharset0 Arial-BoldMT;
+\f3\froman\fcharset0 Times-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww24240\viewh13740\viewkind0
+\deftab720
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \expnd0\expndtw0\kerning0
+In this Section, we will cover the following topics: 
+\fs24 \
+
+\fs29\fsmilli14667 What is Nameko?\uc0\u8232 Creating your first Nameko microservice Storing messages\u8232 Nameko Dependency Providers\u8232 Saving messages\u8232 Retrieving all messages\u8232 Displaying messages in the web browser Sending messages via 
+\fs26\fsmilli13333 POST 
+\fs29\fsmilli14667 requests Browser polling for messages 
+\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf0 \kerning1\expnd0\expndtw0 \
+\
+Two microservices\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \expnd0\expndtw0\kerning0
+Before starting, let's define some goals for our application: 
+\fs24 \
+
+\fs29\fsmilli14667 A user can go to a website and send messages\uc0\u8232 A user can see messages that others have sent\u8232 Messages automatically expire after a configurable amount of time 
+\fs24 \
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\b\fs53\fsmilli26667 \cf2 What is Nameko? 
+\f0\b0\fs24 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs29\fsmilli14667 \cf2 Nameko is an open-source framework used for building microservices in Python. Using Nameko, you can create microservices that communicate with each other using 
+\f3\b RPC 
+\f0\b0 (
+\f3\b Remote Procedure Calls
+\f0\b0 ) via 
+\f3\b AMQP 
+\f0\b0 (
+\f3\b Advanced Message Queueing Protocol
+\f0\b0 ). 
+\fs24 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\b\fs48 \cf2 RPCs 
+\f0\b0\fs24 \
+\
+Cinema Booking System\
+Booking Machine 1 \'97> RPC \'97> Manage email service Machine 2\
+\
+New booking \'97> Email confirmation\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 def new_booking(self, user_id, film, time):\
+                ...\
+                self.email_service.send_confirmation(user_id, film, time)\
+                ...\
+\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\b\fs48 \cf2 How Nameko uses AMQP 
+\f0\b0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf2 Messaging queue\
+Consumed by the service\
+\pard\pardeftab720\sa240\partightenfactor0
+\cf2 \
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\b\fs48 \cf2 RabbitMQ 
+\f0\b0\fs24 \
+Message broker. \
+\
+\
+\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs29\fsmilli14667 \cf2 Let's briefly look at the types of Redis commands that could be useful to us for TempMessenger: 
+\fs24 \
+
+\fs26\fsmilli13333 SET
+\fs29\fsmilli14667 : Sets a given key to hold a given string. It also allows us to set an expiration in seconds or milliseconds.\uc0\u8232 
+\fs26\fsmilli13333 GET
+\fs29\fsmilli14667 : Gets the value of the data stored with the given key.\uc0\u8232 
+\fs26\fsmilli13333 TTL
+\fs29\fsmilli14667 : Gets the time-to-live for a given key in seconds. 
+\fs24 \
+
+\fs26\fsmilli13333 PTTL
+\fs29\fsmilli14667 : Gets the time-to-live for a given key in milliseconds. \
+
+\fs26\fsmilli13333 KEYS
+\fs29\fsmilli14667 : Returns a list of all keys in the data store. 
+\fs24 \
+\
+\
+\
+\
+}
